@@ -3,7 +3,7 @@ from camel_case import to_camel_case
 
 
 class NameConverter:
-    def __init__(self, c: str, s: str, cf: int):
+    def __init__(self, c: str, s: str, cf: bool):
         self.c = c
         self.s = s
         self.cf = cf
@@ -17,5 +17,9 @@ class NameConverter:
 
 
 if __name__ == '__main__':
-    print(NameConverter("snake", "The Snake Case", 0))
-    print(NameConverter("camel", "the camel case", 1))
+    sn = NameConverter("snake", "Snake Case", True)
+    ca = NameConverter("camel", "camel case", True)
+    print(sn)
+    print(ca)
+    print(NameConverter("snake", str(ca), True))
+    print(NameConverter("camel", str(sn), False))
